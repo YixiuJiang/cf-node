@@ -1,0 +1,3216 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is Swagger UI environment generated for the TMF Service Catalog Management specification.",
+    "version" : "1.0.0",
+    "title" : "Service-Catalog-Management"
+  },
+  "basePath" : "/api/v1",
+  "paths" : {
+    "/serviceCatalog" : {
+      "get" : {
+        "tags" : [ "ServiceCatalog" ],
+        "summary" : "List or find 'ServiceCatalog' objects",
+        "operationId" : "listServiceCatalog",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Comma separated properties to display in response",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "For filtering: Name of the serviceCatalog",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "@type",
+          "in" : "query",
+          "description" : "For filtering: Indicates the (class) type of serviceCatalog. For entity catalogs, this will be 'EntityCatalog'.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "@schemaLocation",
+          "in" : "query",
+          "description" : "For filtering: This field provides a link to the schema describing this REST resource",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "@baseType",
+          "in" : "query",
+          "description" : "For filtering: Indicates<b> </b>the base (class) type of this REST resource",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "For filtering: Catalog version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "validFor.startDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, starting at the TimePeriod",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "validFor.endDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, ending at the TimePeriod.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "lastUpdate",
+          "in" : "query",
+          "description" : "For filtering: Date and time of the last update",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCatalog"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "ServiceCatalog" ],
+        "summary" : "Creates a 'ServiceCatalog'",
+        "operationId" : "createServiceCatalog",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "serviceCatalog",
+          "description" : "The Catalog to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCatalog"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCatalog"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceCatalog/{id}" : {
+      "get" : {
+        "tags" : [ "ServiceCatalog" ],
+        "summary" : "Retrieves a 'ServiceCatalog' by Id",
+        "operationId" : "retrieveServiceCatalog",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the ServiceCatalog",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCatalog"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "ServiceCatalog" ],
+        "summary" : "Updates partially a 'ServiceCatalog' by Id",
+        "operationId" : "updateServiceCatalogPatch",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the ServiceCatalog",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "serviceCatalog",
+          "description" : "The ServiceCatalog to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCatalog"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCatalog"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceCategory" : {
+      "get" : {
+        "tags" : [ "ServiceCategory" ],
+        "summary" : "List or find 'ServiceCategory' objects",
+        "operationId" : "listServiceCategory",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Comma separated properties to display in response",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastUpdate",
+          "in" : "query",
+          "description" : "For filtering: Date and time of the last update",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "For filtering: ServiceCategory version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "validFor.startDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, starting at the TimePeriod",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "validFor.endDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, ending at the TimePeriod.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "parentId",
+          "in" : "query",
+          "description" : "For filtering: Unique identifier of the parent service category",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "isRoot",
+          "in" : "query",
+          "description" : "For filtering: If true, this Boolean indicates that the service category is a root of categories",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service category",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCategory"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "ServiceCategory" ],
+        "summary" : "Creates a 'ServiceCategory'",
+        "operationId" : "createServiceCategory",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "category",
+          "description" : "The ServiceCategory to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCategory"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCategory"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceCategory/{id}" : {
+      "get" : {
+        "tags" : [ "ServiceCategory" ],
+        "summary" : "Retrieves a 'ServiceCategory' by Id",
+        "operationId" : "retrieveServiceCategory",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the ServiceCategory",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCategory"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "ServiceCategory" ],
+        "summary" : "Updates a 'ServiceCategory' by Id",
+        "operationId" : "updateServiceCategory",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the ServiceCategory",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "category",
+          "description" : "The ServiceCategory to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCategory"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCategory"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "ServiceCategory" ],
+        "summary" : "Updates partially a 'ServiceCategory' by Id",
+        "operationId" : "updateServiceCategoryPatch",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the ServiceCategory",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "category",
+          "description" : "The ServiceCategory to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCategory"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCategory"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceCandidate" : {
+      "get" : {
+        "tags" : [ "serviceCandidate" ],
+        "summary" : "List or find 'ServiceCandidate' objects",
+        "operationId" : "listServiceCandidate",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Comma separated properties to display in response",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "For filtering: ServiceCandidate version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastUpdate",
+          "in" : "query",
+          "description" : "For filtering: Date and time of the last update",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "For filtering: Name of the serviceCandidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "isBundle",
+          "in" : "query",
+          "description" : "For filtering: isBundle determines whether a serviceCandidate represents a single serviceCandidate (false), or a bundle of serviceCandidates (true).",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "validFor.startDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, starting at the TimePeriod",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "validFor.endDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, ending at the TimePeriod.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "serviceSpecification.version",
+          "in" : "query",
+          "description" : "For filtering: Version of the service specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecification.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecification.type",
+          "in" : "query",
+          "description" : "For filtering: Type of the service specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceCandidate.version",
+          "in" : "query",
+          "description" : "For filtering: Version of the service candidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceCandidate.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service candidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "category.version",
+          "in" : "query",
+          "description" : "For filtering: ServiceCategory version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "category.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service category",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "resourceCandidate.version",
+          "in" : "query",
+          "description" : "For filtering: Version of the resource candidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "resourceCandidate.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the resource candidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bundledServiceCandidate.lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bundledServiceCandidate.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the BundledServiceCandidate",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceCandidateTerm.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the serviceCandidateTerm",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceCandidateTerm.duration",
+          "in" : "query",
+          "description" : "For filtering: Duration of the serviceCandidateTerm",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCandidate"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "serviceCandidate" ],
+        "summary" : "Creates a 'ServiceCandidate'",
+        "operationId" : "createServiceCandidate",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "serviceCandidate",
+          "description" : "The Service Candidate to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCandidate"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCandidate"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceCandidate/{id}" : {
+      "get" : {
+        "tags" : [ "serviceCandidate" ],
+        "summary" : "Retrieves a 'ServiceCandidate' by Id",
+        "operationId" : "retrieveServiceCandidate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Candidate",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceCandidate"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "serviceCandidate" ],
+        "summary" : "Updates a 'ServiceCandidate' by Id",
+        "operationId" : "updateServiceCandidate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Candidate",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "serviceCandidate",
+          "description" : "The Service Candidate to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCandidate"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCandidate"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "serviceCandidate" ],
+        "summary" : "Updates partially a 'ServiceCandidate' by Id",
+        "operationId" : "updateServiceCandidatePatch",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Candidate",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "serviceCandidate",
+          "description" : "The Service Candidate to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceCandidate"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceCandidate"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceSpecification" : {
+      "get" : {
+        "tags" : [ "serviceSpecification" ],
+        "summary" : "List or find 'ServiceSpecification' objects",
+        "operationId" : "listServiceSpecification",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Comma separated properties to display in response",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "For filtering: Service specification version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lastUpdate",
+          "in" : "query",
+          "description" : "For filtering: Date and time of the last update",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "“type”",
+          "in" : "query",
+          "description" : "For filtering: Type of the service specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "isBundle",
+          "in" : "query",
+          "description" : "For filtering: isBundle determines whether a serviceSpecification represents a single serviceSpecification (false), or a bundle of serviceSpecification (true).",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "validFor.startDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, starting at the TimePeriod",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "validFor.endDateTime",
+          "in" : "query",
+          "description" : "For filtering: An instant of time, ending at the TimePeriod.",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "serviceNumber",
+          "in" : "query",
+          "description" : "For filtering: An identification number assigned to uniquely identity the specification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "relatedParty.role",
+          "in" : "query",
+          "description" : "For filtering: Role of the related party.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "relatedParty.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the related party",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecCharacteristic.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the serviceSpecCharacteristic",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecCharacteristic.valueType",
+          "in" : "query",
+          "description" : "For filtering: A kind of value that the characteristic can take on, such as numeric, text and so forth",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecCharacteristic.configurable",
+          "in" : "query",
+          "description" : "For filtering: If true, the Boolean indicates that the serviceSpecCharacteristic is configurable",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "serviceSpecification.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the requiredServiceSpecification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecification.version",
+          "in" : "query",
+          "description" : "For filtering: Service specification version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "serviceSpecificationRelationship.type",
+          "in" : "query",
+          "description" : "For filtering: Type of relationship such as migration, substitution, dependency, exclusivity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "resourceSpecification.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the requiredResourceSpecification",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "resourceSpecification.version",
+          "in" : "query",
+          "description" : "For filtering: Resource specification version",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "attachment.type",
+          "in" : "query",
+          "description" : "For filtering: Attachment type such as video, picture",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "attachment.url",
+          "in" : "query",
+          "description" : "For filtering: Uniform Resource Locator, is a web page address (a subset of URI)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bundledServiceSpecification.lifecycleStatus",
+          "in" : "query",
+          "description" : "For filtering: Used to indicate the current lifecycle status",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bundledServiceSpecification.name",
+          "in" : "query",
+          "description" : "For filtering: Name of the service specification",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceSpecification"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "serviceSpecification" ],
+        "summary" : "Creates a 'ServiceSpecification'",
+        "operationId" : "createServiceSpecification",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "serviceSpecification",
+          "description" : "The Service Specification to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceSpecification_Create"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceSpecification"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/serviceSpecification/{id}" : {
+      "get" : {
+        "tags" : [ "serviceSpecification" ],
+        "summary" : "Retrieves a 'ServiceSpecification' by Id",
+        "operationId" : "retrieveServiceSpecification",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Specification",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ServiceSpecification"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "serviceSpecification" ],
+        "summary" : "Updates a 'ServiceSpecification' by Id",
+        "operationId" : "updateServiceSpecification",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Specification",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "serviceSpecification",
+          "description" : "The Service Specification to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceSpecification_Update"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceSpecification"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "serviceSpecification" ],
+        "summary" : "Updates partially a 'ServiceSpecification' by Id",
+        "operationId" : "updateServiceSpecificationPatch",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Identifier of the Service Specification",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "serviceSpecification",
+          "description" : "The Service Specification to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ServiceSpecification_Update"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Updated",
+            "schema" : {
+              "$ref" : "#/definitions/ServiceSpecification"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/hub" : {
+      "post" : {
+        "tags" : [ "events subscription" ],
+        "summary" : "Register a listener",
+        "description" : "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.",
+        "operationId" : "registerListener",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "data",
+          "description" : "Data containing the callback endpoint to deliver the information",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/EventSubscriptionInput"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Subscribed",
+            "schema" : {
+              "$ref" : "#/definitions/EventSubscription"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/hub/{id}" : {
+      "delete" : {
+        "tags" : [ "events subscription" ],
+        "summary" : "Unregister a listener",
+        "description" : "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.",
+        "operationId" : "unregisterListener",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The id of the registered listener",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Unsubscribed"
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/listener/catalogChangeBatchNotification" : {
+      "post" : {
+        "tags" : [ "events publication" ],
+        "summary" : "Publishes a 'CatalogChangeBatchNotification'",
+        "operationId" : "publishCatalogChangeBatchNotification",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "catalogChangeBatchNotification",
+          "description" : "The Catalog Change Batch Notification to be published",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CatalogChangeBatchNotification"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Published"
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/listener/catalogChangeNotification" : {
+      "post" : {
+        "tags" : [ "events publication" ],
+        "summary" : "Publishes a 'CatalogChangeNotification'",
+        "operationId" : "publishCatalogChangeNotification",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "catalogChangeNotification",
+          "description" : "The Catalog Change Notification to be published",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CatalogChangeNotification"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Published"
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "schema" : {
+              "$ref" : "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "ServiceCatalog" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the Catalog"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Unique reference of the serviceCatalog"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Catalog version"
+        },
+        "lastUpdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date and time of the last update"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Indicates if the catalog is a service, service or resource catalog"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the catalog"
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedPartyRef"
+          }
+        },
+        "category" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceCategoryRef"
+          }
+        }
+      },
+      "description" : "A collection of Service Candidates.",
+      "example" : {
+        "lifecycleStatus" : "lifecycleStatus",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "type" : "type",
+        "relatedParty" : [ {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "category" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ],
+        "version" : "version"
+      }
+    },
+    "ServiceCategory" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the service category"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the catalog"
+        },
+        "lastUpdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date and time of the last update"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "ServiceCategory version"
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "parentId" : {
+          "type" : "string",
+          "description" : "Unique identifier of the parent service category"
+        },
+        "isRoot" : {
+          "type" : "boolean",
+          "description" : "If true, this Boolean indicates that the service category is a root of categories"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service category"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Description of the service category"
+        },
+        "@type" : {
+          "type" : "string",
+          "description" : "type of the service category"
+        },
+        "@schemalLocation" : {
+          "type" : "string",
+          "description" : "schema location"
+        },
+        "@baseType" : {
+          "type" : "string",
+          "description" : "base type of the service category"
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedPartyRef"
+          }
+        },
+        "serviceCandidate" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceCandidateRef"
+          }
+        },
+        "category" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceCategoryRef"
+          }
+        }
+      },
+      "description" : "The service category resource is used to group service candidates, service and resource candidates in logical containers. Categories can contain other categories and/or service candidates, resource or service candidates.",
+      "example" : {
+        "lifecycleStatus" : "lifecycleStatus",
+        "isRoot" : true,
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "serviceCandidate" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ],
+        "@type" : "@type",
+        "description" : "description",
+        "relatedParty" : [ {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "version" : "version",
+        "parentId" : "parentId",
+        "@baseType" : "@baseType",
+        "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+        "name" : "name",
+        "@schemalLocation" : "@schemalLocation",
+        "id" : "id",
+        "href" : "href",
+        "category" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ]
+      }
+    },
+    "ServiceCandidate" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the serviceCandidate"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the ServiceCandidate"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "ServiceCandidate version"
+        },
+        "lastUpdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date and time of the last update"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the serviceCandidate"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Description of the serviceCandidate"
+        },
+        "isBundle" : {
+          "type" : "boolean",
+          "description" : "isBundle determines whether a serviceCandidate represents a single serviceCandidate (false), or a bundle of serviceCandidates (true)."
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "serviceSpecification" : {
+          "$ref" : "#/definitions/ServiceSpecificationRef"
+        },
+        "category" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceCategoryRef"
+          }
+        },
+        "resourceCandidate" : {
+          "$ref" : "#/definitions/ResourceCandidateRef"
+        },
+        "bundledServiceCandidate" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BundledServiceCandidate"
+          }
+        },
+        "serviceCandidateTerm" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceCandidateTerm"
+          }
+        },
+        "@type" : {
+          "type" : "string",
+          "description" : "type of the service category"
+        },
+        "@schemalLocation" : {
+          "type" : "string",
+          "description" : "schema location"
+        },
+        "@baseType" : {
+          "type" : "string",
+          "description" : "base type of the service category"
+        }
+      },
+      "description" : "Represents entities that may be ordered from the provider of the catalog.",
+      "example" : {
+        "isBundle" : true,
+        "serviceCandidateTerm" : [ {
+          "duration" : "duration",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "description" : "description"
+        }, {
+          "duration" : "duration",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "description" : "description"
+        } ],
+        "lifecycleStatus" : "lifecycleStatus",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "@type" : "@type",
+        "serviceSpecification" : {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        },
+        "description" : "description",
+        "version" : "version",
+        "resourceCandidate" : {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        },
+        "@baseType" : "@baseType",
+        "bundledServiceCandidate" : [ {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+        "name" : "name",
+        "@schemalLocation" : "@schemalLocation",
+        "id" : "id",
+        "href" : "href",
+        "category" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ]
+      }
+    },
+    "ServiceSpecification" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the service specification"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the service specification"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Service specification version"
+        },
+        "lastUpdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date and time of the last update"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service specification"
+        },
+        "“type”" : {
+          "type" : "string",
+          "description" : "“Type of the service specification\""
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "A narrative that explains in detail what the service specification is"
+        },
+        "isBundle" : {
+          "type" : "boolean",
+          "description" : "isBundle determines whether a serviceSpecification represents a single serviceSpecification (false), or a bundle of serviceSpecification (true)."
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "serviceNumber" : {
+          "type" : "string",
+          "description" : "An identification number assigned to uniquely identity the specification"
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedPartyRef"
+          }
+        },
+        "serviceSpecCharacteristic" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecCharacteristic"
+          }
+        },
+        "serviceSpecificationRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecificationRelationship"
+          }
+        },
+        "resourceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ResourceSpecificationRef"
+          }
+        },
+        "attachment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Attachment"
+          }
+        },
+        "bundledServiceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BundledServiceSpecification"
+          }
+        }
+      },
+      "description" : "Is a detailed description of a tangible or intangible object made available externally in the form of a ServiceCandidate to service delivery partners or other parties playing a party role.",
+      "example" : {
+        "isBundle" : true,
+        "serviceNumber" : "serviceNumber",
+        "bundledServiceSpecification" : [ {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "lifecycleStatus" : "lifecycleStatus",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "serviceSpecificationRelationship" : [ {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        }, {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        } ],
+        "resourceSpecification" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ],
+        "description" : "description",
+        "relatedParty" : [ {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "version" : "version",
+        "“type”" : "“type”",
+        "attachment" : [ {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        }, {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        } ],
+        "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "serviceSpecCharacteristic" : [ {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        }, {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        } ]
+      }
+    },
+    "ServiceSpecification_Create" : {
+      "type" : "object",
+      "required" : [ "bundledServiceSpecification", "name", "serviceSpecCharacteristic" ],
+      "properties" : {
+        "version" : {
+          "type" : "string",
+          "description" : "Service specification version"
+        },
+        "lastUpdate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date and time of the last update"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service specification"
+        },
+        "“type”" : {
+          "type" : "string",
+          "description" : "“Type of the service specification\""
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "A narrative that explains in detail what the service specification is"
+        },
+        "isBundle" : {
+          "type" : "boolean",
+          "description" : "isBundle determines whether a serviceSpecification represents a single serviceSpecification (false), or a bundle of serviceSpecification (true)."
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "serviceNumber" : {
+          "type" : "string",
+          "description" : "An identification number assigned to uniquely identity the specification"
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedPartyRef"
+          }
+        },
+        "serviceSpecCharacteristic" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecCharacteristic"
+          }
+        },
+        "serviceSpecificationRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecificationRelationship"
+          }
+        },
+        "resourceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ResourceSpecificationRef"
+          }
+        },
+        "attachment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Attachment"
+          }
+        },
+        "bundledServiceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BundledServiceSpecification"
+          }
+        }
+      },
+      "description" : "Is a detailed description of a tangible or intangible object made available externally in the form of a ServiceCandidate to service delivery partners or other parties playing a party role.\nSkipped properties: id,href",
+      "example" : {
+        "isBundle" : true,
+        "serviceNumber" : "serviceNumber",
+        "bundledServiceSpecification" : [ {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "lifecycleStatus" : "lifecycleStatus",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "serviceSpecificationRelationship" : [ {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        }, {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        } ],
+        "resourceSpecification" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ],
+        "description" : "description",
+        "relatedParty" : [ {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "version" : "version",
+        "“type”" : "“type”",
+        "attachment" : [ {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        }, {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        } ],
+        "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+        "name" : "name",
+        "serviceSpecCharacteristic" : [ {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        }, {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        } ]
+      }
+    },
+    "ServiceSpecification_Update" : {
+      "type" : "object",
+      "properties" : {
+        "version" : {
+          "type" : "string",
+          "description" : "Service specification version"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service specification"
+        },
+        "“type”" : {
+          "type" : "string",
+          "description" : "“Type of the service specification\""
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "A narrative that explains in detail what the service specification is"
+        },
+        "isBundle" : {
+          "type" : "boolean",
+          "description" : "isBundle determines whether a serviceSpecification represents a single serviceSpecification (false), or a bundle of serviceSpecification (true)."
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "serviceNumber" : {
+          "type" : "string",
+          "description" : "An identification number assigned to uniquely identity the specification"
+        },
+        "relatedParty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RelatedPartyRef"
+          }
+        },
+        "serviceSpecCharacteristic" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecCharacteristic"
+          }
+        },
+        "serviceSpecificationRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecificationRelationship"
+          }
+        },
+        "resourceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ResourceSpecificationRef"
+          }
+        },
+        "attachment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Attachment"
+          }
+        },
+        "bundledServiceSpecification" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BundledServiceSpecification"
+          }
+        }
+      },
+      "description" : "Is a detailed description of a tangible or intangible object made available externally in the form of a ServiceCandidate to service delivery partners or other parties playing a party role.\nSkipped properties: id,href,id,lastUpdate",
+      "example" : {
+        "isBundle" : true,
+        "serviceNumber" : "serviceNumber",
+        "bundledServiceSpecification" : [ {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "lifecycleStatus" : "lifecycleStatus",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "lifecycleStatus" : "lifecycleStatus",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "serviceSpecificationRelationship" : [ {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        }, {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "id" : "id",
+          "href" : "href",
+          "type" : "type"
+        } ],
+        "resourceSpecification" : [ {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        }, {
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "version" : "version"
+        } ],
+        "description" : "description",
+        "relatedParty" : [ {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        }, {
+          "role" : "role",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "name" : "name",
+          "id" : "id",
+          "href" : "href"
+        } ],
+        "version" : "version",
+        "“type”" : "“type”",
+        "attachment" : [ {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        }, {
+          "href" : "href",
+          "id" : "id",
+          "type" : "type",
+          "url" : "url"
+        } ],
+        "name" : "name",
+        "serviceSpecCharacteristic" : [ {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        }, {
+          "serviceSpecCharRelationship" : [ {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          }, {
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "type" : "type"
+          } ],
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "name" : "name",
+          "description" : "description",
+          "serviceSpecCharacteristicValue" : [ {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          }, {
+            "default" : true,
+            "valueTo" : "valueTo",
+            "unitOfMeasure" : "unitOfMeasure",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "valueType" : "valueType",
+            "value" : "value",
+            "valueFrom" : "valueFrom"
+          } ],
+          "configurable" : true
+        } ]
+      }
+    },
+    "TimePeriod" : {
+      "type" : "object",
+      "properties" : {
+        "startDateTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "An instant of time, starting at the TimePeriod"
+        },
+        "endDateTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "An instant of time, ending at the TimePeriod."
+        }
+      },
+      "description" : "A base / value business entity used to represent a period of time between two timepoints.",
+      "example" : {
+        "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+        "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+      }
+    },
+    "RelatedPartyRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of a related party"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the related party, could be a party reference or a partyRole reference"
+        },
+        "role" : {
+          "type" : "string",
+          "description" : "Role of the related party."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the related party"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      },
+      "description" : "RelatedParty reference. RelatedParty defines party or party role linked to a specific entity.",
+      "example" : {
+        "role" : "role",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "name" : "name",
+        "id" : "id",
+        "href" : "href"
+      }
+    },
+    "ServiceCategoryRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique reference of the service category"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Unique reference of the service category"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "ServiceCategory version"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service category"
+        }
+      },
+      "description" : "ServiceCategory reference. The service category resource is used to group service candidates, service and resource candidates in logical containers. Categories can contain other categories and/or service candidates, resource or service candidates.",
+      "example" : {
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "version" : "version"
+      }
+    },
+    "PlaceRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the place"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Unique reference of the place"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the place"
+        }
+      },
+      "description" : "Place reference. Place defines the places where the service candidates are sold."
+    },
+    "ServiceSpecificationRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the service specification"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the service specification"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Version of the service specification"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service specification"
+        }
+      },
+      "description" : "Service specification reference: A ServiceSpecification is a detailed description of a tangible or intangible object made available externally in the form of a ServiceCandidate to service delivery partners or other parties playing a party role.",
+      "example" : {
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "version" : "version"
+      }
+    },
+    "ServiceCandidateRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the service candidate"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Unique reference of the service candidate"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Version of the service candidate"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service candidate"
+        }
+      },
+      "description" : "ServiceCandidate reference. ServiceCandidate is an entity that makes a ServiceSpecification available to a catalog.",
+      "example" : {
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "version" : "version"
+      }
+    },
+    "ResourceCandidateRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the resource candidate"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the resource candidate"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Version of the resource candidate"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the resource candidate"
+        }
+      },
+      "description" : "ResourceCandidate reference: A resource candidate is an entity that makes a ResourceSpecification available to a catalog.",
+      "example" : {
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "version" : "version"
+      }
+    },
+    "BundledServiceCandidate" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the BundledServiceCandidate"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Unique reference of the BundledServiceCandidate"
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the BundledServiceCandidate"
+        }
+      },
+      "description" : "A type of ServiceCandidate that belongs to a grouping of ServiceCandidates made available to the market. It inherits of all attributes of ServiceCandidate.",
+      "example" : {
+        "lifecycleStatus" : "lifecycleStatus",
+        "name" : "name",
+        "id" : "id",
+        "href" : "href"
+      }
+    },
+    "ServiceCandidateTerm" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the serviceCandidateTerm"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Description of the serviceCandidateTerm"
+        },
+        "duration" : {
+          "type" : "string",
+          "description" : "Duration of the serviceCandidateTerm"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      },
+      "description" : "A condition under which a ServiceCandidate is made available to Service Delivery Partners. For instance, a serviceCandidate can be offered with multiple commitment periods.",
+      "example" : {
+        "duration" : "duration",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "name" : "name",
+        "description" : "description"
+      }
+    },
+    "ServiceSpecCharacteristic" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the serviceSpecCharacteristic"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "A narrative that explains in detail what the serviceSpecCharacteristic is"
+        },
+        "valueType" : {
+          "type" : "string",
+          "description" : "A kind of value that the characteristic can take on, such as numeric, text and so forth"
+        },
+        "configurable" : {
+          "type" : "boolean",
+          "description" : "If true, the Boolean indicates that the serviceSpecCharacteristic is configurable"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        },
+        "serviceSpecCharRelationship" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecCharRelationship"
+          }
+        },
+        "serviceSpecCharacteristicValue" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ServiceSpecCharacteristicValue"
+          }
+        }
+      },
+      "description" : "A characteristic quality or distinctive feature of a ServiceSpecification.  The characteristic can be take on a discrete value, such as color, can take on a range of values, (for example, sensitivity of 100-240 mV), or can be derived from a formula (for example, usage time (hrs) = 30 - talk time *3). Certain characteristics, such as color, may be configured during the ordering or some other process.",
+      "example" : {
+        "serviceSpecCharRelationship" : [ {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "type" : "type"
+        }, {
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "type" : "type"
+        } ],
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "valueType" : "valueType",
+        "name" : "name",
+        "description" : "description",
+        "serviceSpecCharacteristicValue" : [ {
+          "default" : true,
+          "valueTo" : "valueTo",
+          "unitOfMeasure" : "unitOfMeasure",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "value" : "value",
+          "valueFrom" : "valueFrom"
+        }, {
+          "default" : true,
+          "valueTo" : "valueTo",
+          "unitOfMeasure" : "unitOfMeasure",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "valueType" : "valueType",
+          "value" : "value",
+          "valueFrom" : "valueFrom"
+        } ],
+        "configurable" : true
+      }
+    },
+    "ServiceSpecificationRelationship" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the serviceSpecification"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the serviceSpecification"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Type of relationship such as migration, substitution, dependency, exclusivity"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      },
+      "description" : "A migration, substitution, dependency or exclusivity relationship between/among service specifications.",
+      "example" : {
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "id" : "id",
+        "href" : "href",
+        "type" : "type"
+      }
+    },
+    "ResourceSpecificationRef" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the resource specification"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the resource specification"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the requiredResourceSpecification"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Resource specification version"
+        }
+      },
+      "description" : "Resource Specification reference: The ResourceSpecification is required to realize a ServiceSpecification.",
+      "example" : {
+        "name" : "name",
+        "id" : "id",
+        "href" : "href",
+        "version" : "version"
+      }
+    },
+    "Attachment" : {
+      "type" : "object",
+      "properties" : {
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the attachment"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the attachment"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "Attachment type such as video, picture"
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "Uniform Resource Locator, is a web page address (a subset of URI)"
+        }
+      },
+      "description" : "Describes a service through video, pictures...",
+      "example" : {
+        "href" : "href",
+        "id" : "id",
+        "type" : "type",
+        "url" : "url"
+      }
+    },
+    "BundledServiceSpecification" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique identifier of the service specification"
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "Reference of the service specification"
+        },
+        "lifecycleStatus" : {
+          "type" : "string",
+          "description" : "Used to indicate the current lifecycle status"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Name of the service specification"
+        }
+      },
+      "description" : "A type of ServiceSpecification that belongs to a grouping of ServiceSpecifications made available to the market. It inherits of all attributes of ServiceSpecification.",
+      "example" : {
+        "lifecycleStatus" : "lifecycleStatus",
+        "name" : "name",
+        "id" : "id",
+        "href" : "href"
+      }
+    },
+    "ServiceSpecCharRelationship" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "description" : "Type of relationship such as aggregation, migration, substitution, dependency, exclusivity"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      },
+      "description" : "An aggregation, migration, substitution, dependency or exclusivity relationship between/among serviceSpecCharacteristics.",
+      "example" : {
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "type" : "type"
+      }
+    },
+    "ServiceSpecCharacteristicValue" : {
+      "type" : "object",
+      "properties" : {
+        "valueType" : {
+          "type" : "string",
+          "description" : "A kind of value that the characteristic can take on, such as numeric, text, and so forth"
+        },
+        "default" : {
+          "type" : "boolean",
+          "description" : "Indicates if the value is the default value for a characteristic"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "A discrete value that the characteristic can take on"
+        },
+        "unitOfMeasure" : {
+          "type" : "string",
+          "description" : "Could be minutes, GB..."
+        },
+        "valueFrom" : {
+          "type" : "string",
+          "description" : "The low range value that a characteristic can take on"
+        },
+        "valueTo" : {
+          "type" : "string",
+          "description" : "The upper range value that a characteristic can take on"
+        },
+        "validFor" : {
+          "$ref" : "#/definitions/TimePeriod"
+        }
+      },
+      "description" : "A number or text that can be assigned to a ServiceSpecCharacteristic.",
+      "example" : {
+        "default" : true,
+        "valueTo" : "valueTo",
+        "unitOfMeasure" : "unitOfMeasure",
+        "validFor" : {
+          "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+        },
+        "valueType" : "valueType",
+        "value" : "value",
+        "valueFrom" : "valueFrom"
+      }
+    },
+    "CatalogChangeBatchNotification" : {
+      "type" : "object",
+      "properties" : {
+        "eventType" : {
+          "type" : "string",
+          "description" : "Type of event"
+        },
+        "eventTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Creation date of the event"
+        },
+        "eventId" : {
+          "type" : "string",
+          "description" : "Identifier of the event"
+        },
+        "resourcePath" : {
+          "type" : "string",
+          "description" : "To indicate which entity is concerned"
+        },
+        "fieldPath" : {
+          "type" : "string",
+          "description" : "details which field is missing, its structure is quite similar to GET filter criteria"
+        },
+        "event" : {
+          "$ref" : "#/definitions/CatalogEvent"
+        }
+      },
+      "description" : "TheCatalogChangeBatch notification is sent to each listener who has subscribed to receive it.",
+      "example" : {
+        "eventId" : "eventId",
+        "resourcePath" : "resourcePath",
+        "eventTime" : "2000-01-23T04:56:07.000+00:00",
+        "fieldPath" : "fieldPath",
+        "eventType" : "eventType",
+        "event" : {
+          "catalog" : {
+            "lifecycleStatus" : "lifecycleStatus",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+            "name" : "name",
+            "id" : "id",
+            "href" : "href",
+            "type" : "type",
+            "relatedParty" : [ {
+              "role" : "role",
+              "validFor" : {
+                "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+                "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+              },
+              "name" : "name",
+              "id" : "id",
+              "href" : "href"
+            }, {
+              "role" : "role",
+              "validFor" : {
+                "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+                "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+              },
+              "name" : "name",
+              "id" : "id",
+              "href" : "href"
+            } ],
+            "category" : [ {
+              "name" : "name",
+              "id" : "id",
+              "href" : "href",
+              "version" : "version"
+            }, {
+              "name" : "name",
+              "id" : "id",
+              "href" : "href",
+              "version" : "version"
+            } ],
+            "version" : "version"
+          }
+        }
+      }
+    },
+    "CatalogChangeNotification" : {
+      "type" : "object",
+      "properties" : {
+        "eventType" : {
+          "type" : "string",
+          "description" : "Type of event"
+        },
+        "eventTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Creation date of the event"
+        },
+        "eventId" : {
+          "type" : "string",
+          "description" : "Identifier of the event"
+        },
+        "resourcePath" : {
+          "type" : "string",
+          "description" : "To indicate which entity is concerned"
+        },
+        "fieldPath" : {
+          "type" : "string",
+          "description" : "details which field is missing, its structure is quite similar to GET filter criteria"
+        },
+        "event" : {
+          "$ref" : "#/definitions/CatalogEvent"
+        }
+      },
+      "description" : "TheCatalogChange notification is sent to each listener who has subscribed to receive it.",
+      "example" : {
+        "eventId" : "eventId",
+        "resourcePath" : "resourcePath",
+        "eventTime" : "2000-01-23T04:56:07.000+00:00",
+        "fieldPath" : "fieldPath",
+        "eventType" : "eventType",
+        "event" : {
+          "catalog" : {
+            "lifecycleStatus" : "lifecycleStatus",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+            "name" : "name",
+            "id" : "id",
+            "href" : "href",
+            "type" : "type",
+            "relatedParty" : [ {
+              "role" : "role",
+              "validFor" : {
+                "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+                "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+              },
+              "name" : "name",
+              "id" : "id",
+              "href" : "href"
+            }, {
+              "role" : "role",
+              "validFor" : {
+                "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+                "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+              },
+              "name" : "name",
+              "id" : "id",
+              "href" : "href"
+            } ],
+            "category" : [ {
+              "name" : "name",
+              "id" : "id",
+              "href" : "href",
+              "version" : "version"
+            }, {
+              "name" : "name",
+              "id" : "id",
+              "href" : "href",
+              "version" : "version"
+            } ],
+            "version" : "version"
+          }
+        }
+      }
+    },
+    "CatalogEvent" : {
+      "type" : "object",
+      "properties" : {
+        "catalog" : {
+          "$ref" : "#/definitions/ServiceCatalog"
+        }
+      },
+      "description" : "The Catalog event is generated each time a catalog is updated.",
+      "example" : {
+        "catalog" : {
+          "lifecycleStatus" : "lifecycleStatus",
+          "validFor" : {
+            "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+          },
+          "lastUpdate" : "2000-01-23T04:56:07.000+00:00",
+          "name" : "name",
+          "id" : "id",
+          "href" : "href",
+          "type" : "type",
+          "relatedParty" : [ {
+            "role" : "role",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "name" : "name",
+            "id" : "id",
+            "href" : "href"
+          }, {
+            "role" : "role",
+            "validFor" : {
+              "startDateTime" : "2000-01-23T04:56:07.000+00:00",
+              "endDateTime" : "2000-01-23T04:56:07.000+00:00"
+            },
+            "name" : "name",
+            "id" : "id",
+            "href" : "href"
+          } ],
+          "category" : [ {
+            "name" : "name",
+            "id" : "id",
+            "href" : "href",
+            "version" : "version"
+          }, {
+            "name" : "name",
+            "id" : "id",
+            "href" : "href",
+            "version" : "version"
+          } ],
+          "version" : "version"
+        }
+      }
+    },
+    "EventSubscription" : {
+      "required" : [ "callback", "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Id of the listener"
+        },
+        "callback" : {
+          "type" : "string",
+          "description" : "The callback being registered."
+        },
+        "query" : {
+          "type" : "string",
+          "description" : "additional data to be passed"
+        }
+      },
+      "example" : {
+        "query" : "query",
+        "callback" : "callback",
+        "id" : "id"
+      }
+    },
+    "EventSubscriptionInput" : {
+      "required" : [ "callback" ],
+      "properties" : {
+        "callback" : {
+          "type" : "string",
+          "description" : "The callback being registered."
+        },
+        "query" : {
+          "type" : "string",
+          "description" : "additional data to be passed"
+        }
+      },
+      "example" : {
+        "query" : "query",
+        "callback" : "callback"
+      }
+    },
+    "Error" : {
+      "required" : [ "code", "message" ],
+      "properties" : {
+        "code" : {
+          "type" : "integer",
+          "description" : "An integer coding the error type. This is given to caller so he can translate them if required."
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "A short localized string that describes the error."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "(optional) A long localized error description if needed. It can contain precise information about which parameter is missing, or what are the identifier acceptable values."
+        },
+        "infoURL" : {
+          "type" : "string",
+          "description" : "(optional) A URL to online documentation that provides more information about the error."
+        }
+      }
+    }
+  }
+}
